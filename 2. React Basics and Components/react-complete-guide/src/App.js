@@ -11,10 +11,14 @@ const App = () => {
     { title: "Netflix Insurance", amount: 994.67, date: new Date(2021, 1, 31) },
   ];
 
+  const addExpenseHandler = (expenses) => {
+    console.log(expenses);
+  };
+
   // JSX syntax
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

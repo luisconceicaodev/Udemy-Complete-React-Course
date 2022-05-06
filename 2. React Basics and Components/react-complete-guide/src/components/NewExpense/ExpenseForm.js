@@ -1,24 +1,21 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-export const ExpenseForm = () => {
+export const ExpenseForm = (props) => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
-    console.log("title: ", title);
   };
 
   const amountChangeHandler = (e) => {
     setAmount(e.target.value);
-    console.log("amount: ", amount);
   };
 
   const dateChangeHandler = (e) => {
     setDate(e.target.value);
-    console.log("date: ", date);
   };
 
   // setExpense tem de ter os 3 valores, se não ficam vazios
@@ -68,7 +65,8 @@ export const ExpenseForm = () => {
       date: date,
     };
 
-    console.log("yo mom: ", expenseData);
+    //  Parent (NewExpense) passes a function, child executes the function with the data
+    props.onSaveExpenseData(expenseData);
 
     /* Clear inputs (value) on submit */
     setTitle("");
